@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff; /* fondo blanco */
+  --text: #ffffff; /* texto claro para contrastar con el vino */
+  --muted: #a3a3b2;
+  --brand: #6aa9ff;
+  --brand-600: #3a86ff;
+  --surface: #15151d;
+  --card: #1b1b26;
+  --border: #2a2a3b;
+  --radius: 16px;
+  --container: 1100px;
+  --font-sans: "Georgia", "Times New Roman", serif;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --foreground: #37393c;
+  --header-bg: #800020; /* color vino */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Tema oscuro opcional
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root { 
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+*/
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Barra superior */
+.site-header {
+  position: sticky; /* se queda fija arriba */
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: var(--header-bg); /* vino */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.2rem;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--text);
+  opacity: 0.9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  opacity: 1;
+  cursor: pointer;
 }
